@@ -1,129 +1,92 @@
-import page from "./base.page";
-import { expect } from "chai";
-class homePage extends page {
+import { basePage } from "./base.page";
+class homePage extends basePage {
 
-    get contactLink() {
-        return $('a[href="/contact"]')
+    get SingInLink() {
+        return $('a[href="/auth/login"]');
+    }
+
+    get accountOptionsmenu() {
+        return $('#menu');
+    }
+
+    get singOutOption() {
+        return $('a[data-test="nav-sign-out"]');
+    }
+
+    get languageButton() {
+        return $('//*[@id="language"]');
+    }
+
+    get languageMenu() {
+        return $('//*[@id="dropdown-animated"]');
+    }
+
+    get languageEsItem() {
+        return $('a[data-test="lang-es"]');
+    }
+
+    get searchBar() {
+        return $('//*[@id="search-query"]');
+    }
+
+    get searchButton() {
+        return $('#filters button.btn-secondary');
+    } 
+
+    get noResultsMessage() {
+        return $('app-overview > div:nth-child(3) > div.col-md-9 > div.container > div');
+    }
+
+    get chiselsProduct() {
+        return $('img[alt="Chisels Set"]')
+    }
+
+    async clickOnAccountOptions() {
+        await this.accountOptionsmenu.click();
+    }
+
+    async clickOnSingIn() {
+        await this.SingInLink.click();
     }
     
-    get sortingOptionAToZ() {
-        return $('.form-select option[value="name,asc"]')
+    async clickOnSingOut() {
+        await this.singOutOption.click();
     }
 
-    get sortingOptionZToA() {
-        return $('.form-select option[value="name,desc"]')
+    async clickLanguageButton() {
+        await this.languageButton.click();
     }
 
-    get sortingOptionHighToLow() {
-        return $('.form-select option[value="price,desc"]')
+    async clickOnEsItem() {
+        await this.languageEsItem.click();
     }
 
-    get sortingOptionLowToHigh() {
-        return $('.form-select option[value="price,asc"]')
+
+    async fillSearchBar(product) {
+        await this.searchBar.addValue(product);
     }
 
-    get adjustableWrenchProduct() {
-        return $('img[alt="Adjustable Wrench"]')
+    async clickOnSearch() {
+        await this.searchButton.click();
     }
 
-    get woodSawProduct() {
-        return $('img[alt="Wood Saw"]')
+    async checkLanguageMenu() {
+        await expect(this.languageMenu).toBeDisplayed();
     }
 
-    get toolCabinetProduct() {
-        return $('img[alt="Drawer Tool Cabinet"]')
+    async checkLanguageChange() {
+         await expect(this.SingInLink).toHaveText('Iniciar sesión');
     }
 
-     get washersProduct() {
-        return $('img[alt="Washers"]')
+    async checkNoResultMessage() {
+        await expect(this.noResultsMessage).toHaveText('There are no products found.');
     }
 
-    get sheetSanderProduct() {
-        return $('img[alt="Sheet Sander"]')
+    async checkToolResult() {
+        await expect(this.chiselsProduct).toBeDisplayed();
     }
 
-    get courtHammerProduct() {
-        return $('img[alt="Court Hammer"]')
-    }
-
-    get powerToolsCheckbox() {
-        return $('//*[@id="filters"]/fieldset[1]/div[2]/label/input')
-    }
-
-    get forgeflexToolsCheckbox() {
-        return $('input[name="brand_id"]')
-    }
-
-    async clickOnSortAToZ() {
-        await this.sortingOptionAToZ.click();
-    }
-
-    async clickOnSortZToA() {
-        await this.sortingOptionZToA.click();
-    }
-
-     async clickOnSortHighToLow() {
-        await this.sortingOptionHighToLow.click();
-    }
-
-     async clickOnSortLowToHigh() {
-        await this.sortingOptionLowToHigh.click();
-    }
-
-    async clickOnPowerTools() {
-        await this.powerToolsCheckbox.click();
-    }
-
-    async clickOnForgeflex() {
-        await this.forgeflexToolsCheckbox.click();
-    }
-
-    async clickOnContact() {
-        await this.contactLink.click();
-    }
-
-    async checkSortAToZ() {
-        await this.adjustableWrenchProduct.waitForDisplayed({ timeout: 5000 });
-        
-        const isDisplayed = await this.adjustableWrenchProduct.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    }
-
-     async checkSortZToA() {
-        await this.woodSawProduct.waitForDisplayed({ timeout: 5000 });
-        
-        const isDisplayed = await this.woodSawProduct.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    }
-
-    async checkSortHighToLow() {
-        await this.toolCabinetProduct.waitForDisplayed({ timeout: 5000 });
-        
-        const isDisplayed = await this.toolCabinetProduct.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    }
-
-    async checkSortLowToHigh() {
-        await this.washersProduct.waitForDisplayed({ timeout: 5000 });
-        
-        const isDisplayed = await this.washersProduct.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    }
-
-    async checkPowerToolsFilter() {
-        await this.sheetSanderProduct.waitForDisplayed({ timeout: 5000 });
-        
-        const isDisplayed = await this.sheetSanderProduct.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    }
-
-    async checkForgeFlexFilter() {
-        await this.courtHammerProduct.waitForDisplayed({ timeout: 5000 });
-        
-        const isDisplayed = await this.courtHammerProduct.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    }
-
+ 
     openToolShop() {
         return super.open('https://practicesoftwaretesting.com/');
     }
@@ -132,5 +95,5 @@ class homePage extends page {
         return super.checkPage('Practice Software Testing - Toolshop - v5.0')
     }
 }
-
 export default new homePage();
+//l
