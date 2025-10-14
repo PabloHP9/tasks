@@ -82,7 +82,7 @@ class singInPage extends basePage {
     await this.stateField.addValue(state);
   }
 
-  async fillCountryField(country) {
+  async fillCountryField() {
     await this.contryField.click();
   }
 
