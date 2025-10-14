@@ -1,14 +1,13 @@
 export class basePage {
-     
-    async open(path) {
-        await browser.url(path);
-    }
+  async open(path) {
+    await browser.url(path);
+  }
 
-    async checkPage(title) {
-        await expect(browser).toHaveTitle(title)
-    }
+  async checkPage(title) {
+    await expect(browser).toHaveTitle(title);
+  }
 
-    async checkUrl(url) {
-        await expect(browser).toHaveUrl(url)
-    }
+  async checkUrl(url) {
+    await expect(browser).toHaveUrl(url);
+  }
 }
