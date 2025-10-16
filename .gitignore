@@ -4,3 +4,5 @@ node_modules
 *.csv
 *.html
 generated-report.txt
+allure-results/
+allure-report/
