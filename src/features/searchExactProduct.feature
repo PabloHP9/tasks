@@ -1,3 +1,4 @@
+@BDD
 Feature: Search for exact product   
 
  Background:  

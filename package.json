@@ -5,10 +5,10 @@
   "description": "chai and mocha implementation task",
   "main": "index.js",
   "scripts": {
-    "test-chai": "wdio run src/config/wdio.conf.js",
-    "test-BDD": "wdio run src/config/BDD-wdio.conf.js",
-    "lint": "eslint .",
-    "format": "prettier --write ."
+    "test-chai": "wdio run src/config/BDD-wdio.conf.js --cucumberOpts.tagExpression='@chai'",
+    "test-BDD": "wdio run src/config/BDD-wdio.conf.js --cucumberOpts.tagExpression='@BDD'",
+    "lint": "eslint src",
+    "prettier": "prettier --write ."
   },
   "author": "Pablo Hernandez Perea",
   "license": "ISC",

@@ -1,3 +1,4 @@
+@BDD
 Feature: loging with an account  
 
  Background:  

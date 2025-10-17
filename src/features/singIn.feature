@@ -1,3 +1,4 @@
+@BDD
 Feature: Sing up a new account 
    
    Background:

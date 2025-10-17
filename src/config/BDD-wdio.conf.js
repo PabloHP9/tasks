@@ -152,6 +152,8 @@ export const config = {
       "src/stepDefinitions/logIn.steps.js",
       "src/stepDefinitions/changeLanguage.steps.js",
       "src/stepDefinitions/searchExactProduct.steps.js",
+      "src/stepDefinitions/contact.steps.js",
+      "src/stepDefinitions/filter.steps.js",
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
@@ -170,7 +172,7 @@ export const config = {
     // <boolean> fail if there are any undefined or pending steps
     strict: false,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: "",
+    tagExpression: "@chai and @BDD",
     // <number> timeout for step definitions
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.

@@ -1,3 +1,4 @@
+@BDD
 Feature: Change language  
 
  Background:  
